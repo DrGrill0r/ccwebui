@@ -1,0 +1,10 @@
+<div id="categorystash" class="categorycontainer categorycolumn"
+	(drop)="drop($event)" 
+	(dragover)="allowDrop($event)">
+
+	<h2>categories</h2>
+
+	<div id="drag-{{category.id}}" draggable="true" (dragstart)="drag($event,category.id)" (dragend)="dragEnd($event,category.id)" *ngFor="let category of categories;let i = index; trackBy: trackByFn">
+		<span class="badge">{{category.id}}</span>{{category.name}}
+	</div>
+</div>

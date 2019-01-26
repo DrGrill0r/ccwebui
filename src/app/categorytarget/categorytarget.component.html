@@ -1,0 +1,11 @@
+<div id="categorytarget" class="categorycontainer categorycolumn"
+	(drop)="drop($event)" 
+	(dragover)="allowDrop($event)">
+
+	<h2>target container</h2>
+
+	<div id="drop-{{category.id}}" draggable="true" (dragstart)="drag($event, category.id)" (dragend)="dragEnd($event, category.id)" *ngFor="let category of categories">
+		<span class="badge">{{category.id}}</span>{{category.name}}
+	</div>
+</div>
+
