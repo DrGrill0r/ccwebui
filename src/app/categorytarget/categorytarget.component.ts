@@ -29,7 +29,7 @@ export class CategorytargetComponent implements OnInit {
     console.log("TARGET - drop operation started for object ", <string>data)
     var deserializedTransferObject = JSON.parse(data);
 
-    if( !this.categories.some( item => item.id == deserializedTransferObject.id )  )
+    if( !this.categories.some( item => item.category_id == deserializedTransferObject.category_id )  )
     {
       console.log("TARGET - adding ", data, " to the categories array.")
       this.categories.push(deserializedTransferObject);
@@ -37,7 +37,7 @@ export class CategorytargetComponent implements OnInit {
       this.categoryService.setAllCategoriesInTarget(this.categories)
         .subscribe(data => data);
     } else {
-      console.log("TARGET - a category with the id ", deserializedTransferObject.id, " is already present in the this.categories array. Skipping...");
+      console.log("TARGET - a category with the id ", deserializedTransferObject.category_id, " is already present in the this.categories array. Skipping...");
     }
   }
 
@@ -47,7 +47,7 @@ export class CategorytargetComponent implements OnInit {
 
   drag(ev,modelId) {
     console.log("TARGET - drag operation started for modelId ", modelId);
-    var arrayIndex:number = this.categories.findIndex(item => item.id == modelId);
+    var arrayIndex:number = this.categories.findIndex(item => item.category_id == modelId);
 
     var serializedTransferObject = JSON.stringify(this.categories[arrayIndex]);
     console.log("TARGET - sending serialized category object ", serializedTransferObject);
@@ -55,7 +55,7 @@ export class CategorytargetComponent implements OnInit {
   }
 
   dragEnd(ev, modelId) {
-    var arrayIndex:number = this.categories.findIndex(item => item.id == modelId);
+    var arrayIndex:number = this.categories.findIndex(item => item.category_id == modelId);
 
     this.categories.splice(arrayIndex, 1);
     this.categoryService.setAllCategoriesInTarget(this.categories)

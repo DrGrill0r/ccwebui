@@ -31,10 +31,10 @@ export class CategorystashComponent implements OnInit {
     ev.preventDefault();
   }
 
-  drag(ev,modelId) {
+  drag(ev, modelId) {
     console.log("STASH - drag operation started for modelId ", modelId);
 
-    var arrayIndex:number = this.categories.findIndex(item => item.id == modelId);
+    var arrayIndex:number = this.categories.findIndex(item => item.category_id == modelId);
 
     var serializedTransferObject = JSON.stringify(this.categories[arrayIndex]);
     console.log("STASH - sending serialized category object ", serializedTransferObject);
@@ -42,9 +42,7 @@ export class CategorystashComponent implements OnInit {
   }
 
   dragEnd(ev,modelId) {
-    var arrayIndex:number = this.categories.findIndex(item => item.id == modelId);
-
-    //this.categories.splice(arrayIndex, 1);
+    var arrayIndex:number = this.categories.findIndex(item => item.category_id == modelId);
   }
 
 

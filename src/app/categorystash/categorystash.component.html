@@ -4,7 +4,7 @@
 
 	<h2>categories</h2>
 
-	<div id="drag-{{category.id}}" draggable="true" (dragstart)="drag($event,category.id)" (dragend)="dragEnd($event,category.id)" *ngFor="let category of categories;let i = index; trackBy: trackByFn">
-		<span class="badge">{{category.id}}</span>{{category.name}}
+	<div id="drag-{{category.category_id}}" draggable="true" (dragstart)="drag($event,category.category_id)" (dragend)="dragEnd($event,category.category_id)" *ngFor="let category of categories;let i = index; trackBy: trackByFn">
+		<span class="badge">{{category.category_id}}</span>{{category.category_name}}
 	</div>
 </div>

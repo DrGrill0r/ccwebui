@@ -4,8 +4,8 @@
 
 	<h2>target container</h2>
 
-	<div id="drop-{{category.id}}" draggable="true" (dragstart)="drag($event, category.id)" (dragend)="dragEnd($event, category.id)" *ngFor="let category of categories">
-		<span class="badge">{{category.id}}</span>{{category.name}}
+	<div id="drop-{{category.id}}" draggable="true" (dragstart)="drag($event, category.category_id)" (dragend)="dragEnd($event, category.category_id)" *ngFor="let category of categories">
+		<span class="badge">{{category.category_id}}</span>{{category.category_name}}
 	</div>
 </div>
 

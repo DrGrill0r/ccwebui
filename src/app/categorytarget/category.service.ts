@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class CategoryService {
 
-  appserverUrl = 'http://localhost/v1/categories'
+  appserverUrl = 'https://t5n6j2b4ve.execute-api.us-east-2.amazonaws.com/prod/categories'
 
   constructor(private http: HttpClient) { }
 
@@ -34,15 +34,16 @@ export class CategoryService {
    */
   setAllCategoriesInTarget(categories: Category[]): Observable<Array<Category>> {
     console.log("CategoryService updating categories in target.")
+    console.log("Which are ", JSON.stringify(categories))
     return this.http.post<Array<Category>>(this.appserverUrl, categories);
   }
 
   addCategoryToTarget(category: Category) {
-    console.log("CategoryService add category ", category.id, " to target.")
+    console.log("CategoryService add category ", category.category_id, " to target.")
     return this.http.post<Category>(this.appserverUrl, category, httpOptions)
   }
 
   removeCategoryFromTarget(category: Category) {
-    console.log("CategoryService remove category ", category.id, " from target.")
+    console.log("CategoryService remove category ", category.category_id, " from target.")
   }
 }
